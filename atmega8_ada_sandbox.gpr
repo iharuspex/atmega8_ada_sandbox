@@ -3,7 +3,7 @@ with "avr_tool_options.gpr";
 with "avrada_mcu.gpr";
 with "avrada_lib.gpr";
 
-project Atmega8_Ada_Sandbox is
+project ATmega8_Ada_Sandbox is
 
    for Target use "avr";
    for Runtime ("Ada") use AVRAda_RTS'Project_Dir;
@@ -28,4 +28,4 @@ project Atmega8_Ada_Sandbox is
       for Switches ("Ada") use ("-Wl,--print-memory-usage") & AVR_Tool_Options.Linker_Switches;
    end Linker;
 
-end Atmega8_Ada_Sandbox;
+end ATmega8_Ada_Sandbox;

@@ -2,7 +2,7 @@ with AVR;     use AVR;
 with AVR.MCU; use AVR.MCU;
 with AVR.Wait;
 
-procedure Atmega8_Ada_Sandbox is
+procedure ATmega8_Ada_Sandbox is
    LED : Boolean renames PORTD_Bits (0);
 
    procedure Wait_Ms is new AVR.Wait.Generic_Busy_Wait_Milliseconds
@@ -19,4 +19,4 @@ begin
       Wait_Ms (500);
    end loop;
 
-end Atmega8_Ada_Sandbox;
+end ATmega8_Ada_Sandbox;
