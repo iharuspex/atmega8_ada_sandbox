@@ -1,0 +1,58 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "ada.projectFile": "atmega8_ada_sandbox.gpr",
+    "editor.tabSize": 3,
+    "editor.insertSpaces": true
+  },
+  "tasks": {
+   "version": "2.0.0",
+   "tasks": [
+      {
+         "label": "Alire build",
+         "command": "alr build",
+         "type": "shell",
+         "args": [],
+         "problemMatcher": [
+            "$tsc"
+         ],
+         "presentation": {
+            "reveal": "always"
+         },
+         "group": "build"
+      },
+      {
+         "label": "ELF to HEX",
+         "command": "avr-objcopy -O ihex ${workspaceFolder}/bin/*.elf ${workspaceFolder}/bin/firmware.hex",
+         "type": "shell",
+         "args": [],
+         "problemMatcher": [
+            "$tsc"
+         ],
+         "presentation": {
+            "reveal": "always"
+         },
+         "group": "build",
+         "dependsOn": ["Alire build"]
+      },
+      {
+         "label": "Flash via USBASP",
+         "command": "avrdude -p m8 -c usbasp -U flash:w:${workspaceFolder}/bin/firmware.hex",
+         "type": "shell",
+         "args": [],
+         "problemMatcher": [
+            "$tsc"
+         ],
+         "presentation": {
+            "reveal": "always"
+         },
+         "group": "build",
+         "dependsOn": ["ELF to HEX"]
+      }
+   ]
+  }
+}

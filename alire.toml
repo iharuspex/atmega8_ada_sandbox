@@ -1,0 +1,17 @@
+name = "atmega8_ada_sandbox"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Artem Paraev"]
+maintainers = ["Artem Paraev <iharuspex@mail.ru>"]
+maintainers-logins = ["iharuspex"]
+
+[configuration.values]
+avrada_rts.AVR_MCU = "atmega8"
+avrada_rts.Clock_Frequency = 8000000
+
+[[depends-on]]
+gnat_avr_elf = "^12.2.1"
+avrada_rts = "^2.0.1"
+avrada_mcu = "^2.0.2"
+avrada_lib = "^2.0.2"
